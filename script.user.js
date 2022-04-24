@@ -36,36 +36,47 @@ function initiate() {
 
     document.head.append(styleElement)
 
-    window["jQuery"].post("https://pendoria.net/guild/members", (data) => {
+    window["jQuery"].post("https://pendoria.net/profile/overview", (data) => {
 
-        const doc = new DOMParser().parseFromString(data, "text/html");
-        const elems = doc.querySelectorAll("span.chat-username");
+        if (!data.includes("<a class=\"guild-name\" data-guild-id=\"57\">Ethereal</a>")) {
+            console.error("The user running the script is not an Ethereal member!");
+        } else {
 
-        console.log(elems)
+            window["jQuery"].post("https://pendoria.net/guild/members", (data) => {
 
-        members = [];
+                const doc = new DOMParser().parseFromString(data, "text/html");
+                const elems = doc.querySelectorAll("span.chat-username");
 
-        for (let i = 0; i < elems.length; i++) {
+                console.log(elems)
 
-            const elem = elems[i];
+                members = [];
 
-            const id = elem.parentElement.getAttribute("data-player-id");
-            const name = elem.textContent;
+                for (let i = 0; i < elems.length; i++) {
 
-            // Debug Purposes Only
-            // console.log(`Player #${id}; ${name} (Ethereal Member)`);
+                    const elem = elems[i];
 
-            members.push({
-                id: id,
-                username: name,
+                    const id = elem.parentElement.getAttribute("data-player-id");
+                    const name = elem.textContent;
+
+                    // Debug Purposes Only
+                    // console.log(`Player #${id}; ${name} (Ethereal Member)`);
+
+                    members.push({
+                        id: id,
+                        username: name,
+                    })
+
+                }
+
+                console.log("Loaded Ethereal guild members from remote registry.");
+                window["ajaxPost"] = newAjaxPost;
+
             })
 
         }
 
-        console.log("Loaded Ethereal guild members from remote registry.");
-        window["ajaxPost"] = newAjaxPost;
 
-    })
+    });
 
 }
 
