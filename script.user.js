@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Pendoria Ethereal Highlight
 // @namespace http://pendoria.net/
-// @version 1.0
+// @version 1.0.1
 // @author Puls3
 // @include /^https?:\/\/(?:.+\.)?pendoria\.net\/?(?:.+)?$/
 // @homepage https://github.com/xPuls3/Pendoria-Ethereal-Highlight
@@ -28,8 +28,6 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 function initiate() {
-
-    originalAjaxPost = window["ajaxPost"];
 
     const styleElement = document.createElement("style");
     styleElement.innerText = ".elite-ethereal-member { color: lime !important; }"
@@ -67,6 +65,8 @@ function initiate() {
                 }
 
                 console.log("Loaded Ethereal guild members from remote registry.");
+
+                originalAjaxPost = window["ajaxPost"];
                 window["ajaxPost"] = newAjaxPost;
 
             })
