@@ -22,7 +22,7 @@ If you absolutely need an immediate response you may message me directly on Disc
 You are absolutely welcome to contribute code to the GitHub.
 
 ## Clone Policy
-* **I do** consent to a modified version of this script being distributed with credit as a GitHub.
+* **I do** consent to a modified version of this script being distributed with credit as a GitHub fork.
 * **I do not** consent to this script being distributed either modified or unmodified without credit.
 * **I do not** consent to the distribution of this script under any circumstances outside of GitHub.
 
