@@ -47,8 +47,6 @@ function initiate() {
                 const doc = new DOMParser().parseFromString(data, "text/html");
                 const elems = doc.querySelectorAll("span.chat-username");
 
-                console.log(elems)
-
                 members = [];
 
                 for (let i = 0; i < elems.length; i++) {
