@@ -1,4 +1,4 @@
-# Pendoria Guild Highlight
+# Pendoria Ethereal Highlight
 Highlights the names of fellow Ethereal guild members on the market.
 
 ## Downloads
